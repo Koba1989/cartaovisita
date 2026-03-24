@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão Digital - Danilo Kobayashi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .bg-pattern {
+            background-color: #dcf3ff;
+            background-image: radial-gradient(#bce3fc 2px, transparent 2px);
+            background-size: 30px 30px;
+        }
+        /* .logo-runrunit removido pois agora é imagem */
+        .logo-starian {
+            font-family: sans-serif;
+            font-weight: 600;
+            letter-spacing: 4px;
+        }
+        /* Oculta scrollbar */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4 sm:p-6">
+
+    <!-- Container do Cartão -->
+    <div class="bg-white w-full max-w-sm rounded-3xl shadow-xl overflow-hidden relative flex flex-col" style="height: 85vh; max-height: 800px;">
+        
+        <!-- Cabeçalho / Logos -->
+        <div class="bg-[#0f3f5e] px-6 py-4 flex justify-center items-center text-white flex-shrink-0">
+            <!-- Logo Runrun.it -->
+            <img src="https://blog.runrun.it/wp-content/uploads/2022/12/logo-runrun.svg" alt="Runrun.it" class="h-8" style="filter: brightness(0) invert(1);">
+        </div>
+
+        <!-- Topo / Background -->
+        <div class="bg-pattern h-32 relative flex-shrink-0">
+            <!-- Decoração estilo a imagem -->
+            <div class="absolute top-4 right-4 text-[#a3dbfb] opacity-50">
+                <i data-lucide="layout-dashboard" class="w-16 h-16"></i>
+            </div>
+            <div class="absolute top-8 left-4 text-[#a3dbfb] opacity-50">
+                <i data-lucide="users" class="w-12 h-12"></i>
+            </div>
+        </div>
+
+        <!-- Foto de Perfil -->
+        <div class="-mt-16 flex justify-center relative z-10 flex-shrink-0">
+            <div class="w-32 h-32 bg-white rounded-full p-1.5 shadow-md">
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQG7az_RNJFyGg/profile-displayphoto-crop_800_800/B4DZeDMXIwH4AI-/0/1750252745857?e=1775692800&v=beta&t=hOalEEwKbSxJ6eOhuTng11MLDIlDwd7kK2vCMZZYyvc" alt="Danilo Kobayashi" class="w-full h-full object-cover rounded-full border-2 border-[#0092e0]">
+            </div>
+        </div>
+
+        <!-- Informações Principais -->
+        <div class="text-center px-6 pt-3 pb-4 flex-shrink-0">
+            <h1 class="text-3xl font-bold text-[#0092e0] tracking-tight mb-1">Danilo Kobayashi</h1>
+            <p class="text-lg font-medium text-[#004876]">Account Manager</p>
+        </div>
+
+        <!-- Área Rolável de Ações -->
+        <div class="flex-1 overflow-y-auto px-6 pb-6 space-y-4">
+            
+            <!-- Botão Email -->
+            <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center text-[#004876]">
+                        <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
+                        <span class="font-medium text-sm">E-mail</span>
+                    </div>
+                </div>
+                <!-- Email atualizado -->
+                <div class="text-gray-700 text-sm mb-3 break-all">
+                    danilo.kobayashi@runrun.it
+                </div>
+                <div class="flex gap-2">
+                    <!-- Função de copiar atualizada -->
+                    <button onclick="copyText('danilo.kobayashi@runrun.it', this)" class="flex-1 bg-white border border-gray-200 text-gray-700 py-2.5 rounded-xl text-sm font-medium flex justify-center items-center gap-2 active:bg-gray-100 transition-colors">
+                        <i data-lucide="copy" class="w-4 h-4"></i>
+                        Copiar
+                    </button>
+                    <!-- Link mailto atualizado -->
+                    <a href="mailto:danilo.kobayashi@runrun.it" class="flex-1 bg-[#0092e0] text-white py-2.5 rounded-xl text-sm font-medium flex justify-center items-center gap-2 active:bg-blue-600 transition-colors">
+                        <i data-lucide="send" class="w-4 h-4"></i>
+                        Enviar
+                    </a>
+                </div>
+            </div>
+
+            <!-- Botão WhatsApp/Telefone -->
+            <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center text-[#004876]">
+                        <i data-lucide="message-circle" class="w-5 h-5 mr-2"></i>
+                        <span class="font-medium text-sm">WhatsApp</span>
+                    </div>
+                </div>
+                <div class="text-gray-700 text-sm mb-3">
+                    +55 (41) 99752-6235
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="copyText('+5541997526235', this)" class="flex-1 bg-white border border-gray-200 text-gray-700 py-2.5 rounded-xl text-sm font-medium flex justify-center items-center gap-2 active:bg-gray-100 transition-colors">
+                        <i data-lucide="copy" class="w-4 h-4"></i>
+                        Copiar
+                    </button>
+                    <a href="https://wa.me/5541997526235" target="_blank" class="flex-1 bg-[#25D366] text-white py-2.5 rounded-xl text-sm font-medium flex justify-center items-center gap-2 active:bg-green-600 transition-colors">
+                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                        Abrir
+                    </a>
+                </div>
+            </div>
+
+            <!-- Botão Mostrar QR Code -->
+            <button onclick="toggleQR()" class="w-full bg-gray-800 text-white py-3.5 rounded-2xl text-sm font-medium flex justify-center items-center gap-2 active:bg-gray-900 transition-colors mt-2">
+                <i data-lucide="qr-code" class="w-5 h-5"></i>
+                Mostrar QR Code do Contato
+            </button>
+
+            <!-- Área do QR Code (Oculta por padrão) -->
+            <div id="qrContainer" class="hidden flex-col items-center justify-center pt-4 pb-2 animate-fade-in">
+                <p class="text-xs text-gray-500 mb-3 text-center">Peça para a pessoa apontar a câmera do celular para adicionar aos contatos.</p>
+                <div id="qrcode" class="bg-white p-3 rounded-xl shadow-sm border border-gray-100"></div>
+            </div>
+
+        </div>
+
+        <!-- Rodapé -->
+        <div class="bg-[#0f3f5e] px-6 py-3 flex justify-center items-center text-white flex-shrink-0 mt-auto">
+            <div class="flex items-center gap-3">
+                <div class="logo-starian text-sm tracking-[0.2em]">STARIAN</div>
+                <div class="text-[8px] opacity-70 leading-tight uppercase border-l border-white/30 pl-3">
+                    Guiamos<br>o futuro
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notification (Mensagem flutuante) -->
+        <div id="toast" class="fixed bottom-24 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white px-4 py-2 rounded-full text-sm font-medium opacity-0 pointer-events-none transition-opacity duration-300 z-50 flex items-center shadow-lg">
+            <i data-lucide="check-circle-2" class="w-4 h-4 mr-2 text-green-400"></i>
+            Copiado com sucesso!
+        </div>
+
+    </div>
+
+    <script>
+        // Inicializa os ícones do Lucide
+        lucide.createIcons();
+
+        // Função para copiar texto e mostrar feedback
+        function copyText(text, btnElement) {
+            // Cria elemento temporário para cópia segura
+            const el = document.createElement('textarea');
+            el.value = text;
+            el.setAttribute('readonly', '');
+            el.style.position = 'absolute';
+            el.style.left = '-9999px';
+            document.body.appendChild(el);
+            el.select();
+            
+            try {
+                document.execCommand('copy');
+                showToast();
+                
+                // Feedback visual no botão
+                const originalContent = btnElement.innerHTML;
+                btnElement.innerHTML = '<i data-lucide="check" class="w-4 h-4 text-green-600"></i> <span class="text-green-600">Copiado</span>';
+                lucide.createIcons();
+                
+                setTimeout(() => {
+                    btnElement.innerHTML = originalContent;
+                    lucide.createIcons();
+                }, 2000);
+            } catch (err) {
+                console.error('Falha ao copiar', err);
+                alert('Não foi possível copiar o texto automaticamente.');
+            }
+            
+            document.body.removeChild(el);
+        }
+
+        // Exibe o balão de notificação (Toast)
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.style.opacity = '1';
+            setTimeout(() => {
+                toast.style.opacity = '0';
+            }, 2500);
+        }
+
+        // Dados do vCard para o QR Code - Email atualizado
+        const vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Danilo Kobayashi
+TITLE:Account Manager
+ORG:Runrun.it / Starian
+TEL;TYPE=WORK,VOICE:+5541997526235
+EMAIL:danilo.kobayashi@runrun.it
+END:VCARD`;
+
+        // Geração do QR Code
+        let qrGenerated = false;
+        function toggleQR() {
+            const container = document.getElementById('qrContainer');
+            if (container.classList.contains('hidden')) {
+                container.classList.remove('hidden');
+                container.classList.add('flex');
+                
+                if (!qrGenerated) {
+                    new QRCode(document.getElementById("qrcode"), {
+                        text: vCardData,
+                        width: 160,
+                        height: 160,
+                        colorDark : "#0f3f5e",
+                        colorLight : "#ffffff",
+                        correctLevel : QRCode.CorrectLevel.M
+                    });
+                    qrGenerated = true;
+                }
+                
+                // Rola para o final para mostrar o QR code inteiro
+                container.parentElement.scrollTop = container.parentElement.scrollHeight;
+            } else {
+                container.classList.add('hidden');
+                container.classList.remove('flex');
+            }
+        }
+    </script>
+</body>
+</html>
